@@ -61,13 +61,13 @@
     </header>
     <nav>
         <a href="#overview">Overview</a>
-        <a href="#examples">Examples</a>
+        <a href="#EagMan-API">EagMan API</a>
         <a href="/index.html">Home</a>
     </nav>
     <main>
         <section id="overview">
             <h2>Overview</h2>
-            <p>This API allows you to make mods faster and easier</p>
+            <p>OvenMDK allows you to make mods faster and easier, while EagMan is dependency manager </p>
         </section>
         <section id="API">
             <!-- example API -->
@@ -82,10 +82,30 @@
 
             <h3>GET /api/v1/items/{id}</h3>
             <p>Retrieves a specific item by ID.</p>
-            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre>
-        </section> -->
+            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre> <section id="EagMan-API">
+
+            <h3>POST /api/v1/items</h3>
+            <p>Creates a new item.</p>
+            <pre><code>curl -X POST https://api.example.com/api/v1/items -d '{"name": "NewItem"}'</code></pre>
+
+            <h3>GET /api/v1/items/{id}</h3>
+            <p>Retrieves a specific item by ID.</p>
+            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre>  -->
+        </section>
+        <section id="EagMan-API">
+            <h2>Basic API</h2>
+            <h3>EagMan_Dependency value</h3>
+            <p>This value can be set by the user, in a list of urls, and when Eagman is loaded it adds each mod from the url provided.</p>
+            <pre><code>
+            const EagMan_Dependencys = {
+                'https://example-mod-code1',
+                'https://example-mod-code2'
+            }
+            </code></pre>
+        </section>
         <section id="examples">
-            <h2>Examples coming soon</h2>
+            <h2>Examples</h2>
+            <h3>Coming soon</h3>
             <!--<h3>Example Request</h3>
             <pre><code>curl -X GET https://api.example.com/api/v1/items</code></pre>
             <h3>Example Response</h3>
