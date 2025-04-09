@@ -71,29 +71,41 @@
         </section>
         <section id="API">
             <!-- example API -->
-            <!--<h2>Endpoints</h2>
-            <h3>GET /api/v1/items</h3>
-            <p>Retrieves a list of items.</p>
-            <pre><code>curl -X GET https://api.example.com/api/v1/items</code></pre>
+            <h1>OvenMDK API</h1>
+            <h3>static title:string</h3>
+            <p>Sets the title for your mod</p>
+            <pre><code>
+                class ExampleMod extends OMod {
+                    static title:string = "OvenMDK Example Mod";
+                }                
+            </code></pre>
 
-            <h3>POST /api/v1/items</h3>
+            <h3>static description:string</h3>
+            <p>Sets the description for your mod</p>
+            <pre><code>
+                class ExampleMod extends OMod {
+                    static description:string = "OvenMDK Example Mod";
+                }    
+            </code></pre>
+
+            <h3>static credits:string</h3>
+            <p>Sets the credits for your mod.</p>
+            <pre><code>
+                class ExampleMod extends OMod {
+                    static credits:string = "BendieGames";
+                } 
+            </code></pre>
+            <p> More API coming soon</p>
+            <!-- <h3>POST /api/v1/items</h3>
             <p>Creates a new item.</p>
             <pre><code>curl -X POST https://api.example.com/api/v1/items -d '{"name": "NewItem"}'</code></pre>
 
             <h3>GET /api/v1/items/{id}</h3>
             <p>Retrieves a specific item by ID.</p>
-            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre> <section id="EagMan-API">
-
-            <h3>POST /api/v1/items</h3>
-            <p>Creates a new item.</p>
-            <pre><code>curl -X POST https://api.example.com/api/v1/items -d '{"name": "NewItem"}'</code></pre>
-
-            <h3>GET /api/v1/items/{id}</h3>
-            <p>Retrieves a specific item by ID.</p>
-            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre>  -->
+            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre> -->
         </section>
         <section id="EagMan-API">
-            <h2>Basic API</h2>
+            <h1>EagMan API</h1>
             <h3>EagMan_Dependency value</h3>
             <p>This value can be set by the user, in a list of urls, and when Eagman is loaded it adds each mod from the url provided.</p>
             <pre><code>
