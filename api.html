@@ -137,19 +137,64 @@
                     static acceptedMinecraftVersions = ["1.12.2"];
                 }  
             </code></pre>
+        <h3>static acceptedEaglerUpdates = []</h3>
+        <p>Sets the accepted Minecraft versions for your mod</p>
+        <pre><code>
+                class ExampleMod extends OMod {
+                    static acceptedEaglerUpdates = ["1.12.2"];
+                }  
+            </code></pre>
+        <h3>static acceptedEFVersions = []</h3>
+            <p>Sets the accepted EaglerForge versions for your mod</p>
+            <pre><code>
+                    class ExampleMod extends OMod {
+                      static acceptedEFVersions = ["2.7.1"];
+                    }  
+              </code></pre>
+            <h3>static acceptedEFVersions = []</h3>
+            <p>Sets the accepted EaglerForge versions for your mod</p>
+            <pre><code>
+                    class ExampleMod extends OMod {
+                      static acceptedEFVersions = ["2.7.1"];
+                    }  
+              </code></pre>
+            <h3>static acceptedEFFlavour</h3>
+            <p>Sets the accepted EaglerForge flavor for your mod</p>
+            <pre><code>
+                  class ExampleMod extends OMod {
+                    static acceptedEFFlavour = "injector";
+                  }  
+            </code></pre>
+            <h3>static clientSideOnly:boolean</h3>
+            <p>Sets the value for defining if your mod is clientSided only</p>
+            <pre><code>
+                  class ExampleMod extends OMod {
+                    static clientSideOnly = false;
+                  }  
+            </code></pre>
+            <h3>static serverSideOnly:boolean</h3>
+            <p>Sets the value for defining if your mod is serverSided only</p>
+            <pre><code>
+                  class ExampleMod extends OMod {
+                    static serverSideOnly = false;
+                  }  
+            </code></pre>
+            <h3>static init():void {}</h3>
+            <p>Runs a statement when the mod is loaded.</p>
+            <pre><code>
+                  class ExampleMod extends OMod {
+                    static init() {
+                      console.log('test')
+                    }
+                  }  
+            </code></pre>
         <p>More API coming soon</p>
         <!-- documentation to add:
 
-	    static acceptedEaglerUpdates:Array<string> = null;
-	    static acceptedEFVersions:Array<string> = null;
-	    static acceptedEFFlavour:string = "injector";
 
-        static clientSideOnly:boolean = false;
-        static serverSideOnly:boolean = false;
+
     
-        static init():void {
 
-        }
 
         static postInit():void {
 
