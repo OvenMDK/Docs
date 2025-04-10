@@ -52,6 +52,29 @@
             bottom: 0;
             width: 100%;
         }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            header {
+                background: #1e1e1e;
+            }
+            nav a {
+                color: #bb86fc;
+            }
+            main {
+                background: #1e1e1e;
+                color: #ffffff;
+            }
+            pre {
+                background: #333;
+                color: #eee;
+            }
+            footer {
+                background: #1e1e1e;
+            }
+        }
     </style>
 </head>
 <body>
@@ -61,6 +84,7 @@
     </header>
     <nav>
         <a href="#overview">Overview</a>
+        <a href="#OVENMDK-API">OvenMDK API</a>
         <a href="#EagMan-API">EagMan API</a>
         <a href="index.html">Home</a>
     </nav>
@@ -69,7 +93,8 @@
             <h2>Overview</h2>
             <p>OvenMDK allows you to make mods faster and easier, while EagMan is dependency manager </p>
         </section>
-        <section id="API">
+        <br/>
+        <section id="OVENMDK-API">
             <!-- example API -->
             <h1>OvenMDK API</h1>
             <h3>static title:string</h3>
@@ -87,7 +112,6 @@
                     static description:string = "OvenMDK Example Mod";
                 }    
             </code></pre>
-
             <h3>static credits:string</h3>
             <p>Sets the credits for your mod.</p>
             <pre><code>
@@ -95,15 +119,33 @@
                     static credits:string = "BendieGames";
                 } 
             </code></pre>
-            <p> More API coming soon</p>
-            <!-- <h3>POST /api/v1/items</h3>
-            <p>Creates a new item.</p>
-            <pre><code>curl -X POST https://api.example.com/api/v1/items -d '{"name": "NewItem"}'</code></pre>
+            <h3>static icon:string</h3>
+            <p>Sets the icon for your mod.</p>
+            <pre><code>
+                class ExampleMod extends OMod {
+                    static icon:string = "base64 image string";
+                } 
+            </code></pre>
 
-            <h3>GET /api/v1/items/{id}</h3>
-            <p>Retrieves a specific item by ID.</p>
-            <pre><code>curl -X GET https://api.example.com/api/v1/items/1</code></pre> -->
+            <h3>static acceptedMinecraftVersions = []</h3>
+            <p>Sets the accepted Minecraft versions for your mod</p>
+            <pre><code>
+                class ExampleMod extends OMod {
+                    static acceptedMinecraftVersions = ["1.12.2"];
+                }  
+            </code></pre>
+            <p> More API coming soon</p>
+            <!-- documentation to add:
+
+             static acceptedEFVersions = ["2.7.3"];
+
+             and
+             static init():void {
+                console.log("ExampleMod Loaded!");
+             }
+            -->
         </section>
+        <br/>
         <section id="EagMan-API">
             <h1>EagMan API</h1>
             <h3>EagMan_Dependency value</h3>
@@ -115,6 +157,7 @@
             }
             </code></pre>
         </section>
+        <br/>
         <section id="examples">
             <h2>Examples</h2>
             <h3>Coming soon</h3>
