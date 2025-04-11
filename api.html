@@ -180,11 +180,20 @@
                   }  
             </code></pre>
             <h3>static init():void {}</h3>
-            <p>Runs a statement when the mod is loaded.</p>
+            <p>Runs a statement when the mod is registered to Oven.</p>
             <pre><code>
                   class ExampleMod extends OMod {
                     static init() {
-                      console.log('test')
+                      console.log('mod registered!')
+                    }
+                  }  
+            </code></pre>
+            <h3>static postinit():void {}</h3>
+            <p>Runs a statement when all mods are loaded.</p>
+            <pre><code>
+                  class ExampleMod extends OMod {
+                    static postinit() {
+                      console.log('All mods loaded!')
                     }
                   }  
             </code></pre>
@@ -192,14 +201,12 @@
         <!-- documentation to add:
 
 
-
+            None for now :D
     
 
 
-        static postInit():void {
-
-        }
-            -->
+        
+        -->
       </section>
       <br />
       <section id="EagMan-API">
