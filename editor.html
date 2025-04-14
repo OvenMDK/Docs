@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monaco Editor</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: row; 
+            align-items: flex-start; 
+        }
+        #editor {
+            height: 600px;
+            width: 800px;
+            border: 1px solid #555;
+            margin-right: 10px; 
+        }
+        .button-container {
+            display: flex;
+            width: 10%;
+            flex-direction: column; 
+            justify-content: flex-start;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005a99;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script src="https://unpkg.com/typescript/lib/typescript.js"></script>
+    <script>
+        require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            const editor = monaco.editor.create(document.getElementById('editor'), {
+                value: `
+                /// <reference src='defs/ModAPI.d.ts'>
+                ModAPI.meta.credits('example owner');
+                ModAPI.meta.icon('https://exampleurl');
+                ModAPI.meta.title('example mod');
+                ModAPI.meta.description('example typescript mod');
+                ModAPI.meta.version('v0.1');`,
+                language: 'typescript',
+                theme: 'vs-dark'
+            });
+
+            function loadDeclarationFile(filePath) {
+                fetch(filePath)
+                    .then(response => response.text())
+                    .then(content => {
+                        const model = monaco.editor.createModel(content, 'typescript', monaco.Uri.parse(`file://${filePath}`));
+                        monaco.languages.typescript.javascriptDefaults.addExtraLib(content, filePath);
+                    })
+                    .catch(error => console.error('Error loading declaration file:', error));
+            }
+
+            function saveContent() {
+                const content = editor.getValue();
+                document.cookie = `editorContent=${encodeURIComponent(content)}; path=/; max-age=31536000`;
+            }
+
+            function loadContent() {
+                const match = document.cookie.match(/editorContent=([^;]+)/);
+                if (match) {
+                    const content = decodeURIComponent(match[1]);
+                    editor.setValue(content);
+                }
+            }
+
+            function downloadFile(filename, text) {
+                const blob = new Blob([text], { type: 'application/javascript' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            function compileTS() {
+                const tsCode = editor.getValue();
+                const result = ts.transpileModule(tsCode, {
+                    compilerOptions: {
+                        module: "commonjs",
+                        lib: ["es5", "es6", "dom"],
+                        removeComments: true
+                    }
+                });
+                downloadFile('compiled.js', result.outputText);
+            }
+
+            document.getElementById('saveButton').addEventListener('click', () => {
+                saveContent();
+                alert('Content saved!');
+            });
+
+            document.getElementById('loadButton').addEventListener('click', () => {
+                loadContent();
+                alert('Content loaded!');
+            });
+
+            document.getElementById('compileButton').addEventListener('click', () => {
+                compileTS();
+            });
+
+            editor.onDidChangeModelContent(() => {
+                saveContent();
+            });
+
+            loadContent();
+            loadDeclarationFile('defs/EFI.d.ts');
+            loadDeclarationFile('defs/OvenMDK.d.ts');
+        });
+    </script>
+</head>
+<body>
+    <div id="editor"></div>
+    <div class="button-container">
+        <button id="saveButton">Save</button>
+        <button id="loadButton">Load</button>
+        <button id="compileButton">Compile</button>
+    </div>
+</body>
+</html>
