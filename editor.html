@@ -43,12 +43,12 @@
         require(['vs/editor/editor.main'], function() {
             const editor = monaco.editor.create(document.getElementById('editor'), {
                 value: `
-                /// <reference src='defs/ModAPI.d.ts'>
-                ModAPI.meta.credits('example owner');
-                ModAPI.meta.icon('https://exampleurl');
-                ModAPI.meta.title('example mod');
-                ModAPI.meta.description('example typescript mod');
-                ModAPI.meta.version('v0.1');`,
+/// <reference src='defs/ModAPI.d.ts'>
+ModAPI.meta.credits('example owner');
+ModAPI.meta.icon('https://exampleurl');
+ModAPI.meta.title('example mod');
+ModAPI.meta.description('example typescript mod');
+ModAPI.meta.version('v0.1');`,
                 language: 'typescript',
                 theme: 'vs-dark'
             });
