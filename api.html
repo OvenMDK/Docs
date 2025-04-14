@@ -211,16 +211,12 @@
       <br />
       <section id="EagMan-API">
         <h1>EagMan API</h1>
-        <h3>EagMan_Dependency value</h3>
+        <h3>registerMod()</h3>
         <p>
-          This value can be set by the user, in a list of urls, and when Eagman
-          is loaded it adds each mod from the url provided.
+          This function can be ran to register your mod to EagMan API.
         </p>
         <pre><code>
-            const EagMan_Dependencys = {
-                'https://example-mod-code1',
-                'https://example-mod-code2'
-            }
+            registerMod('examplemod',['https://example-dependcy-source-code1','https://example-dependcy-source-code2'])
             </code></pre>
       </section>
       <br />
