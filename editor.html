@@ -128,6 +128,13 @@
         <button id="saveButton">Save</button>
         <button id="loadButton">Load</button>
         <button id="compileButton">Compile</button>
+        <button id="openUrlButton">Open Docs</button>
+
+        <script>
+            document.getElementById('openUrlButton').addEventListener('click', function() {
+                window.open('index.html', '_blank');
+            });
+        </script>
     </div>
 </body>
 </html>
