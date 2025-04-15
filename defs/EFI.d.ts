@@ -2,9 +2,6 @@
     Modern ModAPI Type Definitions
     Definitions written by: Block_2222(everything else), BendieGames(util), aleixdev(reflect)
     
-    Definitions v1.1
-    Made for EaglerForge Injector v2.7.3
-
     EaglerForge/ModAPI by: ZXMushroom63, radmanplays, Leah Anderson(otterdev)
 */
 
@@ -54,6 +51,15 @@ declare namespace ModAPI {
      */
     let GNU: string;
     
+    /**
+     * This boolean is set to true if the eaglerforge client is running on 1.12 
+     * ( This is has been added because peyton changed stuff so now some stuff is diffrent for the API  )
+     * @example
+     * if (ModAPI.is_1_12) {
+     *     console.log('You are using eaglerforge on 1.12!');
+     * };
+     */
+    let is_1_12: boolean;
     /**
      * Lets you easily add credits to Eaglercraft’s credits.txt
      * @example
