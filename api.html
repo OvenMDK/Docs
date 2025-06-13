@@ -183,7 +183,7 @@
             <p>Runs a statement when the mod is registered to Oven.</p>
             <pre><code>
                   class ExampleMod extends OMod {
-                    static init() {
+                    static init(): void {
                       console.log('mod registered!')
                     }
                   }  
@@ -192,7 +192,7 @@
             <p>Runs a statement when all mods are loaded.</p>
             <pre><code>
                   class ExampleMod extends OMod {
-                    static postinit() {
+                    static postinit(): void {
                       console.log('All mods loaded!')
                     }
                   }  
@@ -201,16 +201,24 @@
             <p>Config function to run when conig button is clicked next to your mod</p>
             <pre><code>
                   class ExampleMod extends OMod {
-                    static config() {
+                    static config(): void {
                       // idk some html? ( I dont know how to do html in ts lol )
                     }
                   }  
             </code></pre>
-            <h3>OItem(itemname, base64 png);</h3>
+            <h3>OItem(itemname, itemID, base64 png);</h3>
             <p>Registers a item to your mod.</p>
             <pre><code>
                   class ExampleMod extends OMod {
-                    new OItem("exampleitem", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKZJREFUOE9j/P//PxMDBIBoEP6HREOl4PLIciA2AyPIgMcM//7KgvWSDJjBBpx9/+YvJzc3Sbq12DhB6sEGsJ19/+YnmQawYhigzc7FcPXnN4KugbqAHWQAy9n3b34T4wJkw6EGYLqAoNVQBWS5ANlwZBfAvUCs/0EGkW0AzBKqGoCSDgh5A80F2KMRpAgfAKUT6kcjsfEPUycmKMQgy8AETkgUZWcAS3CPIf4oSPsAAAAASUVORK5CYII=");
+                    static init(): void {
+
+                      const itemTexture = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKZJREFUOE9j/P//PxMDBIBoEP6HREOl4PLIciA2AyPIgMcM//7KgvWSDJjBBpx9/+YvJzc3Sbq12DhB6sEGsJ19/+YnmQawYhigzc7FcPXnN4KugbqAHWQAy9n3b34T4wJkw6EGYLqAoNVQBWS5ANlwZBfAvUCs/0EGkW0AzBKqGoCSDgh5A80F2KMRpAgfAKUT6kcjsfEPUycmKMQgy8AETkgUZWcAS3CPIf4oSPsAAAAASUVORK5CYII=";
+
+                      const myItem = new OItem("My Sword", "my_sword", itemTexture);
+
+                      myItem.register();
+                      myItem.registerClient();
+                    }
                   }  
             </code></pre>
         <p>More API coming soon</p>
