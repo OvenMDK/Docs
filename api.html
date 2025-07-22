@@ -19,19 +19,56 @@
         text-align: center;
       }
       nav {
-        margin: 20px 0;
-        text-align: center;
+          margin: 20px 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: baseline;
+          align-items: center;
+      }
+      nav img {
+          margin-right: 1vw;
+          margin-left: 1vw;
+      }
+      nav div {
+          margin-left: 1vw;
+          padding: 1vh;
+          border-radius: 10px;
+          background-color: rgba(255, 255, 255, 0.1);
       }
       nav a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: #007bff;
+          margin: 0 15px;
+          text-decoration: none;
+          font-weight: 600;
+          color: #007BFF;
       }
-      main {
+      nav a:active {
+          color: #007BFF;
+      }
+      nav a:visited {
+          color: #007BFF;
+      }
+      hr {
+        margin-bottom: 3vh;
+      }
+      #main {
+        display: flex;
+        flex-direction: row;
+        max-width: 100vw;
+        justify-content: space-between;
+      }
+      #sidebar {
         padding: 20px;
-        background: white;
-        max-width: 800px;
-        margin: auto;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 1rem;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      #main-content {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);;
+        margin: 1rem;
+        width: 75%;
         border-radius: 5px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
@@ -43,6 +80,7 @@
         padding: 10px;
         border-radius: 5px;
         overflow-x: auto;
+        font-size: larger;
       }
       footer {
         background: #f1f1f1;
@@ -68,8 +106,8 @@
           color: #ffffff;
         }
         pre {
-          background: #333;
-          color: #eee;
+          background: #181818;
+          color: white;
         }
         footer {
           background: #1e1e1e;
@@ -78,190 +116,198 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>API Documentation</h1>
-      <p>Your guide to the API endpoints</p>
-    </header>
     <nav>
-      <a href="#overview">Overview</a>
-      <a href="#OVENMDK-API">OvenMDK API</a>
-      <a href="#EagMan-API">EagMan API</a>
-      <a href="index.html">Home</a>
-      <a href="https://github.com/OvenMDK">Github</a>
+      <img src="https://avatars.githubusercontent.com/u/206608148?s=200&v=4" alt="OvenMDK Icon">
+      <h1>Docs</h1>
+      <!-- <img src="./menu_40dp_E3E3E3_FILL0_wght500_GRAD0_opsz40.svg" alt="OvenMDK Icon"> -->
+      <div>
+        <a href="#overview">Overview</a>
+        <a href="#OVENMDK-API">OvenMDK API</a>
+        <a href="#EagMan-API">EagMan API</a>
+        <a href="index.html">Home</a>
+        <a href="https://github.com/OvenMDK">Github</a>
+      </div>
     </nav>
-    <main>
-      <section id="overview">
-        <h2>Overview</h2>
-        <p>
-          OvenMDK allows you to make mods faster and easier, while EagMan is
-          dependency manager
-        </p>
-      </section>
-      <br />
-      <section id="OVENMDK-API">
-        <!-- example API -->
+    <hr>
+
+    <div id="main">
+      <div id="sidebar">
         <h1>OvenMDK API</h1>
-        <h3>static title:string</h3>
-        <p>Sets the title for your mod</p>
-        <pre><code>
-                class ExampleMod extends OMod {
-                    static title:string = "OvenMDK Example Mod";
-                }                
-            </code></pre>
+      </div>
+      <div id="main-content">
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>
+            OvenMDK allows you to make mods faster and easier, while EagMan is
+            dependency manager
+          </p>
+        </section>
+        <br />
+        <section id="OVENMDK-API">
+          <!-- example API -->
+          <h1>OvenMDK API</h1>
+          <h3>static title:string</h3>
+          <p>Sets the title for your mod</p>
+          <pre><code>
+        class ExampleMod extends OMod {
+            static title:string = "OvenMDK Example Mod";
+        }
+          </code></pre>
 
-        <h3>static description:string</h3>
-        <p>Sets the description for your mod</p>
-        <pre><code>
-                class ExampleMod extends OMod {
-                    static description:string = "OvenMDK Example Mod";
-                }    
-            </code></pre>
-        <h3>static credits:string</h3>
-        <p>Sets the credits for your mod.</p>
-        <pre><code>
-                class ExampleMod extends OMod {
-                    static credits:string = "BendieGames";
-                } 
-            </code></pre>
-        <h3>static icon:string</h3>
-        <p>Sets the icon for your mod.</p>
-        <pre><code>
-                class ExampleMod extends OMod {
-                    static icon:string = "base64 image string";
-                } 
-            </code></pre>
+          <h3>static description:string</h3>
+          <p>Sets the description for your mod</p>
+          <pre><code>
+        class ExampleMod extends OMod {
+            static description:string = "OvenMDK Example Mod";
+        }    
+              </code></pre>
+          <h3>static credits:string</h3>
+          <p>Sets the credits for your mod.</p>
+          <pre><code>
+                  class ExampleMod extends OMod {
+                      static credits:string = "BendieGames";
+                  } 
+              </code></pre>
+          <h3>static icon:string</h3>
+          <p>Sets the icon for your mod.</p>
+          <pre><code>
+                  class ExampleMod extends OMod {
+                      static icon:string = "base64 image string";
+                  } 
+              </code></pre>
 
-        <h3>static acceptedMinecraftVersions = []</h3>
-        <p>Sets the accepted Minecraft versions for your mod</p>
-        <pre><code>
-                class ExampleMod extends OMod {
-                    static acceptedMinecraftVersions = ["1.12.2"];
-                }  
-            </code></pre>
-        <h3>static acceptedEaglerUpdates = []</h3>
-        <p>Sets the accepted Minecraft versions for your mod</p>
-        <pre><code>
-                class ExampleMod extends OMod {
-                    static acceptedEaglerUpdates = ["1.12.2"];
-                }  
-            </code></pre>
-        <h3>static acceptedEFVersions = []</h3>
-            <p>Sets the accepted EaglerForge versions for your mod</p>
-            <pre><code>
+          <h3>static acceptedMinecraftVersions = []</h3>
+          <p>Sets the accepted Minecraft versions for your mod</p>
+          <pre><code>
+                  class ExampleMod extends OMod {
+                      static acceptedMinecraftVersions = ["1.12.2"];
+                  }  
+              </code></pre>
+          <h3>static acceptedEaglerUpdates = []</h3>
+          <p>Sets the accepted Minecraft versions for your mod</p>
+          <pre><code>
+                  class ExampleMod extends OMod {
+                      static acceptedEaglerUpdates = ["1.12.2"];
+                  }  
+              </code></pre>
+          <h3>static acceptedEFVersions = []</h3>
+              <p>Sets the accepted EaglerForge versions for your mod</p>
+              <pre><code>
+                      class ExampleMod extends OMod {
+                        static acceptedEFVersions = ["2.7.1"];
+                      }  
+                </code></pre>
+              <h3>static acceptedEFVersions = []</h3>
+              <p>Sets the accepted EaglerForge versions for your mod</p>
+              <pre><code>
+                      class ExampleMod extends OMod {
+                        static acceptedEFVersions = ["2.7.1"];
+                      }  
+                </code></pre>
+              <h3>static acceptedEFFlavour</h3>
+              <p>Sets the accepted EaglerForge flavor for your mod</p>
+              <pre><code>
                     class ExampleMod extends OMod {
-                      static acceptedEFVersions = ["2.7.1"];
+                      static acceptedEFFlavour = "injector";
                     }  
               </code></pre>
-            <h3>static acceptedEFVersions = []</h3>
-            <p>Sets the accepted EaglerForge versions for your mod</p>
-            <pre><code>
+              <h3>static clientSideOnly:boolean</h3>
+              <p>Sets the value for defining if your mod is clientSided only</p>
+              <pre><code>
                     class ExampleMod extends OMod {
-                      static acceptedEFVersions = ["2.7.1"];
+                      static clientSideOnly = false;
                     }  
               </code></pre>
-            <h3>static acceptedEFFlavour</h3>
-            <p>Sets the accepted EaglerForge flavor for your mod</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static acceptedEFFlavour = "injector";
-                  }  
-            </code></pre>
-            <h3>static clientSideOnly:boolean</h3>
-            <p>Sets the value for defining if your mod is clientSided only</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static clientSideOnly = false;
-                  }  
-            </code></pre>
-            <h3>static serverSideOnly:boolean</h3>
-            <p>Sets the value for defining if your mod is serverSided only</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static serverSideOnly = false;
-                  }  
-            </code></pre>
-            <h3>static init():void {}</h3>
-            <p>Runs a statement when the mod is registered to Oven.</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static init(): void {
-                      console.log('mod registered!')
-                    }
-                  }  
-            </code></pre>
-            <h3>static postinit():void {}</h3>
-            <p>Runs a statement when all mods are loaded.</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static postinit(): void {
-                      console.log('All mods loaded!')
-                    }
-                  }  
-            </code></pre>
-            <h3>static config():void {}</h3>
-            <p>Config function to run when conig button is clicked next to your mod</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static config(): void {
-                      // idk some html? ( I dont know how to do html in ts lol )
-                    }
-                  }  
-            </code></pre>
-            <h3>OItem(itemname, itemID, base64 png);</h3>
-            <p>Registers a item to your mod.</p>
-            <pre><code>
-                  class ExampleMod extends OMod {
-                    static init(): void {
+              <h3>static serverSideOnly:boolean</h3>
+              <p>Sets the value for defining if your mod is serverSided only</p>
+              <pre><code>
+                    class ExampleMod extends OMod {
+                      static serverSideOnly = false;
+                    }  
+              </code></pre>
+              <h3>static init():void {}</h3>
+              <p>Runs a statement when the mod is registered to Oven.</p>
+              <pre><code>
+                    class ExampleMod extends OMod {
+                      static init(): void {
+                        console.log('mod registered!')
+                      }
+                    }  
+              </code></pre>
+              <h3>static postinit():void {}</h3>
+              <p>Runs a statement when all mods are loaded.</p>
+              <pre><code>
+                    class ExampleMod extends OMod {
+                      static postinit(): void {
+                        console.log('All mods loaded!')
+                      }
+                    }  
+              </code></pre>
+              <h3>static config():void {}</h3>
+              <p>Config function to run when conig button is clicked next to your mod</p>
+              <pre><code>
+                    class ExampleMod extends OMod {
+                      static config(): void {
+                        // idk some html? ( I dont know how to do html in ts lol )
+                      }
+                    }  
+              </code></pre>
+              <h3>OItem(itemname, itemID, base64 png);</h3>
+              <p>Registers a item to your mod.</p>
+              <pre><code>
+                    class ExampleMod extends OMod {
+                      static init(): void {
 
-                      const itemTexture = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKZJREFUOE9j/P//PxMDBIBoEP6HREOl4PLIciA2AyPIgMcM//7KgvWSDJjBBpx9/+YvJzc3Sbq12DhB6sEGsJ19/+YnmQawYhigzc7FcPXnN4KugbqAHWQAy9n3b34T4wJkw6EGYLqAoNVQBWS5ANlwZBfAvUCs/0EGkW0AzBKqGoCSDgh5A80F2KMRpAgfAKUT6kcjsfEPUycmKMQgy8AETkgUZWcAS3CPIf4oSPsAAAAASUVORK5CYII=";
-    
-                      const myItem = new OItem("My Sword", "my_sword", itemTexture, (itemstack) => {
-                        ModAPI.displayToChat("Used item!")
-                      });
+                        const itemTexture = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKZJREFUOE9j/P//PxMDBIBoEP6HREOl4PLIciA2AyPIgMcM//7KgvWSDJjBBpx9/+YvJzc3Sbq12DhB6sEGsJ19/+YnmQawYhigzc7FcPXnN4KugbqAHWQAy9n3b34T4wJkw6EGYLqAoNVQBWS5ANlwZBfAvUCs/0EGkW0AzBKqGoCSDgh5A80F2KMRpAgfAKUT6kcjsfEPUycmKMQgy8AETkgUZWcAS3CPIf4oSPsAAAAASUVORK5CYII=";
+      
+                        const myItem = new OItem("My Sword", "my_sword", itemTexture, (itemstack) => {
+                          ModAPI.displayToChat("Used item!")
+                        });
 
 
-                      myItem.register();
-                      myItem.registerClient();
-                    }
-                  }  
-            </code></pre>
-        <p>More API coming soon</p>
-        <!-- documentation to add:
+                        myItem.register();
+                        myItem.registerClient();
+                      }
+                    }  
+              </code></pre>
+          <p>More API coming soon</p>
+          <!-- documentation to add:
 
 
-            None for now :D
-    
+              None for now :D
+      
 
 
-        
-        -->
-      </section>
-      <br />
-      <section id="EagMan-API">
-        <h1>EagMan API ( Cancelled idk) </h1>
-        <h3>registerMod()</h3>
-        <p>
-          This function can be ran to register your mod to EagMan API.
-        </p>
-        <pre><code>
-            registerMod('examplemod',['https://example-dependcy-source-code1','https://example-dependcy-source-code2'])
-            </code></pre>
-      </section>
-      <br />
-      <section id="examples">
-        <h2>Examples</h2>
-        <h3>Coming soon</h3>
-        <!--<h3>Example Request</h3>
-            <pre><code>curl -X GET https://api.example.com/api/v1/items</code></pre>
-            <h3>Example Response</h3>
-            <pre><code>{
-    "items": [
-        {"id": 1, "name": "Item1"},
-        {"id": 2, "name": "Item2"}
-    ]
-}</code></pre> -->
-      </section>
-    </main>
+          
+          -->
+        </section>
+        <br />
+        <section id="EagMan-API">
+          <h1>EagMan API ( Cancelled idk) </h1>
+          <h3>registerMod()</h3>
+          <p>
+            This function can be ran to register your mod to EagMan API.
+          </p>
+          <pre><code>
+              registerMod('examplemod',['https://example-dependcy-source-code1','https://example-dependcy-source-code2'])
+              </code></pre>
+        </section>
+        <br />
+        <section id="examples">
+          <h2>Examples</h2>
+          <h3>Coming soon</h3>
+          <!--<h3>Example Request</h3>
+              <pre><code>curl -X GET https://api.example.com/api/v1/items</code></pre>
+              <h3>Example Response</h3>
+              <pre><code>{
+      "items": [
+          {"id": 1, "name": "Item1"},
+          {"id": 2, "name": "Item2"}
+      ]
+  }</code></pre> -->
+        </section>
+      </div>
+    </div>
     <footer>
       <p>&copy; 2025 OvenMDK</p>
     </footer>
