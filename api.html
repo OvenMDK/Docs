@@ -252,7 +252,7 @@
                       }
                     }  
               </code></pre>
-              <h3>OItem(itemname, itemID, maxItemStack, base64 png);</h3>
+              <h3>OItem(itemname, itemID, maxItemStack, base64 png, onRightClick, onItemUse);</h3>
               <p>Registers a item to your mod.</p>
               <pre><code>
                     class ExampleMod extends OMod {
@@ -269,7 +269,7 @@
                       }
                     }  
               </code></pre>
-              <h3>OBlock(blockname, blockID, maxItemStack, base64 png);</h3>
+              <h3>OBlock(blockname, blockID, maxItemStack, base64 png, onBreak);</h3>
               <p>Registers a item to your mod.</p>
               <pre><code>
                     class ExampleMod extends OMod {
@@ -290,7 +290,7 @@
           <!-- documentation to add:
 
 
-              None for now :D
+              OEntity(entityName, entityID, base64 png, entityModel)
       
 
 
